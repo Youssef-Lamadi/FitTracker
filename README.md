@@ -12,14 +12,17 @@ users, calculate statistics such as calories burned, weight tracking, etc., and 
 ___________________________________________________________________________________________________________________________________________________
 
                                          structure of the FitTracker App
-posibility to create an account 
-modification of the profile informations anytime
-history of at least one week/month/year activity
-send notifications to the user (optionnal)
-BMR calculator
-weight tracking
-health advices/
-healthy divirse articles to read by the user 
+- posibility to create an account 
+- possibility to monitor activity
+- sleep analysis
+- steps
+- modification of the profile informations anytime
+- history of at least one week/month/year activity
+- send notifications to the user (optionnal)
+- BMR calculator
+- weight tracking
+- health advices
+- healthy divirse articles to read by the user 
 
 
 
