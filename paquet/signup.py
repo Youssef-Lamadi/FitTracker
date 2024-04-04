@@ -100,7 +100,7 @@ def enter_data():
 window = Tk()
 window.title("Sign Up")
 window.geometry('340x440')
-
+window.configure(bg='#FFA500')
 #window.geometry("500x400")
 
 # c=Canvas(window,bg="gray16", height=200,width=200)
@@ -110,34 +110,34 @@ window.geometry('340x440')
 # c.pack()
 
 
-frame = Frame(window,bg='#333333',width=600, height=500)
+frame = Frame(window,bg='#FFA500',width=600, height=500)
 #frame.pack()
 frame.place(relx=0.5, rely=0.5, anchor="center")
 
 # Saving User Info
-user_info_frame = LabelFrame(frame, text="User Information",bg='#333333')
+user_info_frame = LabelFrame(frame, text="Create Account",bg='#FFA500', font=("Robot", 12))
 user_info_frame.grid(row=0, column=0, padx=20, pady=10)
 
-first_name_label = Label(user_info_frame, text="First Name")
+first_name_label = Label(user_info_frame, text="First Name",bg='#FFA500', font=("Robot", 10))
 first_name_label.grid(row=0, column=0)
-last_name_label = Label(user_info_frame, text="Last Name")
+last_name_label = Label(user_info_frame, text="Last Name",bg='#FFA500', font=("Robot", 10))
 last_name_label.grid(row=0, column=1)
 
-first_name_entry = Entry(user_info_frame)
-last_name_entry = Entry(user_info_frame)
+first_name_entry = Entry(user_info_frame, font=("Arial", 16))
+last_name_entry = Entry(user_info_frame, font=("Arial", 16))
 first_name_entry.grid(row=1, column=0)
 last_name_entry.grid(row=1, column=1)
 
-age_label = Label(user_info_frame, text="Age")
-age_spinbox = Spinbox(user_info_frame, from_=0, to=110)
+age_label = Label(user_info_frame, text="Age",bg='#FFA500', font=("Robot", 10))
+age_spinbox = Spinbox(user_info_frame, from_=0, to=110, font=("Arial", 16))
 age_label.grid(row=2, column=0)
 age_spinbox.grid(row=3, column=0)
 
 # Create labels and entries for weight, height
-weight_label = Label(user_info_frame, text="Weight (kg):")
-weight_entry = Entry(user_info_frame)
-height_label = Label(user_info_frame, text="Height (cm):")
-height_entry = Entry(user_info_frame)
+weight_label = Label(user_info_frame, text="Weight (kg):",bg='#FFA500', font=("Robot", 10))
+weight_entry = Entry(user_info_frame, font=("Arial", 16))
+height_label = Label(user_info_frame, text="Height (cm):",bg='#FFA500', font=("Robot", 10))
+height_entry = Entry(user_info_frame, font=("Arial", 16))
 
 # Arrange elements using grid layout
 height_label.grid(row=2, column=1)
@@ -145,29 +145,29 @@ height_entry.grid(row=3, column=1)
 weight_label.grid(row=2, column=2)
 weight_entry.grid(row=3, column=2)
 
-sex_label = Label(user_info_frame, text="Gender")
-sex_combobox = ttk.Combobox(user_info_frame, values=["", "Male", "Female"])
+sex_label = Label(user_info_frame, text="Gender",bg='#FFA500', font=("Robot", 10))
+sex_combobox = ttk.Combobox(user_info_frame, values=["", "Male", "Female"], font=("Arial", 16))
 sex_label.grid(row=0, column=2)
 sex_combobox.grid(row=1, column=2)
 
-username_label = Label(user_info_frame, text="Username")
+username_label = Label(user_info_frame, text="Username",bg='#FFA500', font=("Robot", 10))
 username_label.grid(row=4,column=0)
-username_entry = Entry(user_info_frame)
+username_entry = Entry(user_info_frame, font=("Arial", 16))
 username_entry.grid(row=5 , column=0 )
 
-password_label = Label(user_info_frame, text="Password")
+password_label = Label(user_info_frame, text="Password",bg='#FFA500', font=("Robot", 10))
 password_label.grid(row=4,column=1)
-password_entry = Entry(user_info_frame,show="*")
+password_entry = Entry(user_info_frame,show="*", font=("Arial", 16))
 password_entry.grid(row=5 , column=1 )
 
-confirm_password_label = Label(user_info_frame, text="Confirm Password")
+confirm_password_label = Label(user_info_frame, text="Confirm Password",bg='#FFA500', font=("Robot", 10))
 confirm_password_label.grid(row=4,column=2)
-confirm_password_entry = Entry(user_info_frame, show="*")
+confirm_password_entry = Entry(user_info_frame, show="*", font=("Arial", 16))
 confirm_password_entry.grid(row=5 , column=2 )
 
-email_label = Label(user_info_frame, text="Email Address")
+email_label = Label(user_info_frame, text="Email Address",bg='#FFA500', font=("Robot", 10))
 email_label.grid(row=8,column=0)
-email_entry = Entry(user_info_frame)
+email_entry = Entry(user_info_frame, font=("Arial", 16))
 email_entry.grid(row=9 , column=0 )
 
 
@@ -176,7 +176,7 @@ for widget in user_info_frame.winfo_children():
 
 
 # Accept terms
-terms_frame = LabelFrame(frame, text="Terms & Conditions")
+terms_frame = LabelFrame(frame, text="Terms & Conditions",bg='#FFA500', font=("Robot", 10))
 terms_frame.grid(row=2, column=0, sticky="news", padx=20, pady=10)
 
 accept_var = StringVar(value="Not Accepted")
@@ -184,7 +184,7 @@ terms_check = Checkbutton(terms_frame, text="I accept the terms and conditions."
 terms_check.grid(row=0, column=0)
 
 # Button
-button = Button(frame, text="Sign up", command=enter_data)
+button = Button(frame, text="Sign up", command=enter_data, font=("Robot", 12),bg='silver',fg='black')
 button.grid(row=3, column=0, sticky="news", padx=20, pady=10)
 
 window.mainloop()
