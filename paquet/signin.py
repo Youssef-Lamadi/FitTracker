@@ -6,11 +6,11 @@ import hashlib
 window = tkinter.Tk()
 window.title("Sign in")
 window.geometry('340x440')
-window.configure(bg='#333333')
+window.configure(bg='#FFA500')
 
 def login():
     # Open the Excel file
-    filepath = "C:\\Users\\em\\Desktop\\FitTracker\\DB.xlsx"
+    filepath = "..\\DB.xlsx"
     try:
         workbook = openpyxl.load_workbook(filepath)
         sheet = workbook.active
@@ -30,14 +30,14 @@ def login():
                 return
     messagebox.showerror(title="Error", message="Invalid login.")
 
-frame = tkinter.Frame(bg='#333333')
+frame = tkinter.Frame(bg='#FFA500')
 
 # Creating widgets
-login_label = tkinter.Label(frame, text="Login", bg='#333333', fg="#FF3399", font=("Arial", 30))
-username_label = tkinter.Label(frame, text="Username or Email", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
+login_label = tkinter.Label(frame, text="Login", bg='#FFA500', fg="#FF3399", font=("Arial", 30))
+username_label = tkinter.Label(frame, text="Username or Email", bg='#FFA500', fg="#FFFFFF", font=("Arial", 16))
 username_entry = tkinter.Entry(frame, font=("Arial", 16))
 password_entry = tkinter.Entry(frame, show="*", font=("Arial", 16))
-password_label = tkinter.Label(frame, text="Password", bg='#333333', fg="#FFFFFF", font=("Arial", 16))
+password_label = tkinter.Label(frame, text="Password", bg='#FFA500', fg="#FFFFFF", font=("Arial", 16))
 login_button = tkinter.Button(frame, text="Login", bg="#FF3399", fg="#FFFFFF", font=("Arial", 14), command=login)
 
 # Placing widgets on the screen

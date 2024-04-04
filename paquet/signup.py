@@ -1,10 +1,11 @@
 from tkinter import *
 from tkinter import ttk
 import hashlib
-#from tkinter import ttk
 from tkinter import messagebox
 import os
 import openpyxl
+
+
 
 
 def enter_data():
@@ -20,15 +21,20 @@ def enter_data():
             messagebox.showwarning(title="Error", message="Passwords do not match. Please make sure your password and confirm password entries are identical.")
         elif email and password and username:
             # Check uniqueness of username and email
-            filepath = "C:\\Users\\em\\Desktop\\FitTracker\\DB.xlsx"
+            filepath = "..\\DB.xlsx"
             if not os.path.exists(filepath):
-                messagebox.showwarning(title="Error", message="Database file not found.")
-                return
+                workbook = openpyxl.Workbook()
+                sheet = workbook.active
+                heading = ["NOM", "PRENOM", "GENDER", "AGE", "HEIGHT", "WEIGHT", "USERNAME", "PASSWORD", "EMAIL",
+                           "EMAIL_NOTIFICATIONS"]
+                sheet.append(heading)
+                workbook.save(filepath)
+
 
             workbook = openpyxl.load_workbook(filepath)
             sheet = workbook.active
-            usernames = [cell.value for cell in sheet['E'][1:]]  # Assuming username is in column E
-            emails = [cell.value for cell in sheet['G'][1:]]  # Assuming email is in column G
+            usernames = [cell.value for cell in sheet['G'][1:]]  # Assuming username is in column E
+            emails = [cell.value for cell in sheet['I'][1:]]  # Assuming email is in column G
 
             if username in usernames:
                 messagebox.showwarning(title="Error", message="Username already exists. Please choose another one.")
@@ -46,17 +52,42 @@ def enter_data():
             gender = sex_combobox.get()
             age = age_spinbox.get()
 
-            filepath = "C:\\Users\\em\\Desktop\\FitTracker\\DB.xlsx"
+            height = height_entry.get()
+            weight = weight_entry.get()
+
+
+            # Check if height is a positive number
+            try:
+                height_value = float(height)
+                if height_value <= 0:
+                    messagebox.showwarning(title="Error", message="Height must be a positive number.")
+                    return
+            except ValueError:
+                messagebox.showwarning(title="Error", message="Height must be a number.")
+                return
+
+            # Check if weight is a positive number
+            try:
+                weight_value = float(weight)
+                if weight_value <= 0:
+                    messagebox.showwarning(title="Error", message="Weight must be a positive number.")
+                    return
+
+            except ValueError:
+                messagebox.showwarning(title="Error", message="Weight must be a number.")
+                return
+
+            filepath = "..\\DB.xlsx"
 
             if not os.path.exists(filepath):
-                workbook = openpyxl.Workbook()
-                sheet = workbook.active
-                heading = ["NOM", "PRENOM", "GENDER", "AGE", "USERNAME","PASSWORD", "EMAIL", "EMAIL_NOTIFICATIONS"]
-                sheet.append(heading)
-                workbook.save(filepath)
+                 workbook = openpyxl.Workbook()
+                 sheet = workbook.active
+                 heading = ["NOM", "PRENOM", "GENDER", "AGE", "HEIGHT", "WEIGHT", "USERNAME","PASSWORD", "EMAIL", "EMAIL_NOTIFICATIONS"]
+                 sheet.append(heading)
+                 workbook.save(filepath)
             workbook = openpyxl.load_workbook(filepath)
             sheet = workbook.active
-            sheet.append([firstname, lastname, gender, age, username, hashed_password, email, "on"])
+            sheet.append([firstname, lastname, gender, age,height,weight, username, hashed_password, email, "on"])
             workbook.save(filepath)
             messagebox.showinfo(title="Success", message="You registered successfully!")
 
@@ -68,12 +99,23 @@ def enter_data():
 
 window = Tk()
 window.title("Sign Up")
+window.geometry('340x440')
 
-frame = Frame(window)
-frame.pack()
+#window.geometry("500x400")
+
+# c=Canvas(window,bg="gray16", height=200,width=200)
+# filename=PhotoImage(file="img8.png")
+# background_label=Label(window,image=filename)
+# background_label.place(x=0,y=0,relwidth=1,relheight=1)
+# c.pack()
+
+
+frame = Frame(window,bg='#333333',width=600, height=500)
+#frame.pack()
+frame.place(relx=0.5, rely=0.5, anchor="center")
 
 # Saving User Info
-user_info_frame = LabelFrame(frame, text="User Information")
+user_info_frame = LabelFrame(frame, text="User Information",bg='#333333')
 user_info_frame.grid(row=0, column=0, padx=20, pady=10)
 
 first_name_label = Label(user_info_frame, text="First Name")
@@ -91,10 +133,22 @@ age_spinbox = Spinbox(user_info_frame, from_=0, to=110)
 age_label.grid(row=2, column=0)
 age_spinbox.grid(row=3, column=0)
 
+# Create labels and entries for weight, height
+weight_label = Label(user_info_frame, text="Weight (kg):")
+weight_entry = Entry(user_info_frame)
+height_label = Label(user_info_frame, text="Height (cm):")
+height_entry = Entry(user_info_frame)
+
+# Arrange elements using grid layout
+height_label.grid(row=2, column=1)
+height_entry.grid(row=3, column=1)
+weight_label.grid(row=2, column=2)
+weight_entry.grid(row=3, column=2)
+
 sex_label = Label(user_info_frame, text="Gender")
 sex_combobox = ttk.Combobox(user_info_frame, values=["", "Male", "Female"])
-sex_label.grid(row=2, column=1)
-sex_combobox.grid(row=3, column=1)
+sex_label.grid(row=0, column=2)
+sex_combobox.grid(row=1, column=2)
 
 username_label = Label(user_info_frame, text="Username")
 username_label.grid(row=4,column=0)
@@ -126,8 +180,7 @@ terms_frame = LabelFrame(frame, text="Terms & Conditions")
 terms_frame.grid(row=2, column=0, sticky="news", padx=20, pady=10)
 
 accept_var = StringVar(value="Not Accepted")
-terms_check = Checkbutton(terms_frame, text="I accept the terms and conditions.",
-                                  variable=accept_var, onvalue="Accepted", offvalue="Not Accepted")
+terms_check = Checkbutton(terms_frame, text="I accept the terms and conditions.",variable=accept_var, onvalue="Accepted", offvalue="Not Accepted")
 terms_check.grid(row=0, column=0)
 
 # Button
