@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+<title>TP1 document de html</title>
+</head>
+<body style="background-color: aqua;">
+    <p style="font-size: 1cm;font-weight:bold";>Formulaire Type<br>
+        Coodonnees
+    </p>
+    <br>
+    <form>
+        <label for="nom"style="font-weight:bold">Nom</label>
+        <br>
+    <input texte="text" name="nom">
+    <br>
+    <label for="prenom"style="font-weight:bold">Prenom</label>
+    <br>
+    <input texte="text" name="prenom">
+    <br>
+    <label for="condition" style="font-weight: bold;">Je desire recevoir une documentation<input type="checkbox" ></label>
+    <br>
+    <br>
+<label for="ville" style="font-weight: bold;">Ville</label>
+<br>
+<select name="book" >
+    <option value="1">Oujda</option>
+    <option value="2">agadir</option>
+    <option value="3">Guelmim</option>
+
+</select>
+<br>
+<label for="sex">Sex</label>
+<input type="radio" name ="masculin">masculin
+<input type="radio" name ="femenim">femenim
+<br>
+
+</form>
+<form>
+    <p style="font-weight: bold;">Domaines d'activites </p>
+    <br>
+    <p>Vous pouvez en choisir plus qu'un ....</p>
+    <input type="checkbox" for="case1" name="case1" >
+    <label for="case1">Pedagogie</label>
+    <input type="checkbox" for="case2" name="case2" >
+    <label for="case2">Psychologie</label>
+    <input type="checkbox" for="case3" name="case3" >
+    <label for="case3">Informatique</label>
+    <input type="checkbox" for="case4" name="case4" >
+    <label for="case4">Autre</label>
+</form>
+<form>
+    <p style="font-weight: bold;">Commentaires</p>
+    
+    <p>Si vous le voulez,vous pouvez decrire vos activities ou internes</p>
+    <textarea name="commentaire " rows="5" cols="50"></textarea>
+    <br>
+    <button type="reset" >effacer les donnnes</button>
+    <button type="submit">enregister les donnees</button>
+</form>
+</body>
+</html>
+
