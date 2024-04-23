@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 import subprocess
+import os 
 root = Tk()
 root.config(bg="White")
 root.title("Animation de texte")
@@ -20,13 +21,13 @@ def translation(button):
     root.destroy()
     
     if(button==button_signup):
-        subprocess.run(["python",'C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\java programme\\FitTracker\\FitTracker\\test.py'])
+        subprocess.run(["python",os.path.join(os.path.dirname(__file__),'signup.py')])
     else:
-        subprocess.run(["python",'C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\java programme\\FitTracker\\FitTracker\\acueill.py'])
-signup_leave = Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\button_signup_leave - Copie (2).png").resize((200,150))
-signup_enter = Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\button_signup_enter - Copie.png").resize((200,150))
-signin_leave = Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\button_signin_leave - Copie.png").resize((200,150))
-signin_enter = Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\button_signin_enter - Copie.png").resize((200,150))
+        subprocess.run(["python",os.path.join(os.path.dirname(__file__),'signin.py')])
+signup_leave = Image.open(os.path.join(os.path.dirname(__file__),"images\\button_signup_leave - Copie (2).png")).resize((200,150))
+signup_enter = Image.open(os.path.join(os.path.dirname(__file__),"images\\button_signup_enter - Copie.png")).resize((200,150))
+signin_leave = Image.open(os.path.join(os.path.dirname(__file__),"images\\button_signin_leave - Copie.png")).resize((200,150))
+signin_enter = Image.open(os.path.join(os.path.dirname(__file__),"images\\button_signin_enter - Copie.png")).resize((200,150))
 
 button_signup = Button(root, image=None, borderwidth=0, highlightthickness=0, padx=10, pady=10,command=lambda:translation(button_signup))
 button_signup.place(x=650, y=420)

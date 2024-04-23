@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import mysql.connector
+import os 
 def connection():
     
     conn = mysql.connector.connect(host="localhost", user="root", password="", database="client")
@@ -33,7 +34,7 @@ def connection():
         signup_window.after(100,signup_window.destroy)
         
     else:
-        messagebox.showerror("error","y")
+        messagebox.showerror("error","inscription error!!!")
         entries[9].delete(0,'end')
    
 def on_entry_focus_in(event):
@@ -50,7 +51,7 @@ signup_window = Tk()
 signup_window.config(bg="light blue")
 signup_window.geometry("1000x800")
 
-signup_image = ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\signup.webp").resize((490, 800)))
+signup_image = ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\signup.webp")).resize((490, 800))) 
 Label(signup_window, image=signup_image).pack(side="left")
 Label(signup_window, text="Sign In", font=("Arial", 30,"bold"), bg="light blue").place(x=650, y=10)
 
@@ -81,20 +82,20 @@ for entry, y in zip(entries, y_positions):
 for y in range(100, 715, 65):
     Frame(signup_window, bg="black", width=300, height=2).place(x=580, y=y)
 
-signup_enter = Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\button_signup_leave.png").resize((200, 100))
+signup_enter = Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\java programme\\FitTracker\\FitTracker\\images\\button_signup_leave.png").resize((200, 100))
 photo_1 = ImageTk.PhotoImage(signup_enter)
 button_connection = Button(signup_window, bg="black", image=photo_1, borderwidth=0, highlightthickness=0, padx=10, pady=10, command=connection)
 button_connection.place(x=610, y=700)
 photos=[
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\user.png").resize((35,35))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\id.png").resize((45,45))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\id.png").resize((45,45))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\gender.png").resize((45,45))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\age.png").resize((45,45))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\weight.png").resize((40,40))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\height .png").resize((40,40))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\password.webp").resize((40,40))),
-    ImageTk.PhotoImage(Image.open("C:\\Users\\Mohamed Sabbar\\OneDrive\\Bureau\\email.png").resize((40,40)))
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\user.png")).resize((35,35))),  
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\id.png")).resize((45,45))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\id.png")).resize((45,45))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\gender.png")).resize((45,45))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\age.png")).resize((45,45))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\weight.png")).resize((40,40))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\height .png")).resize((40,40))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\password.webp")).resize((40,40))),
+    ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\email.png")).resize((40,40)))
 ]
 for i,y in zip(range(0,7),range(66,507,63)):
    Label(signup_window,image=photos[i],bg="Light blue").place(x=530,y=y)
@@ -103,11 +104,4 @@ Label(signup_window,image=photos[8],bg="Light blue").place(x=526,y=510)
 Label(signup_window,image=photos[7],bg="Light blue").place(x=526,y=585)
 Label(signup_window,image=photos[7],bg="Light blue").place(x=526,y=645)
 signup_window.mainloop()
-
-
-
-
-
-
-
-
+print(os.path.dirname(__file__))
