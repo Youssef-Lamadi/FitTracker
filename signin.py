@@ -3,6 +3,7 @@ import mysql.connector
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
+
 import subprocess
 def check_user():
     exist = False
@@ -22,8 +23,9 @@ def check_user():
             
             if row:
                 L=list(row)
+                print(L)
                 f.destroy()
-                subprocess.run(["python",os.path.join(os.path.dirname(__file__),'page_principale.py'),str(L[1]),str(L[2]),str(L[3]),str(L[4]),str(L[5]),str(L[6]),str(L[7]),str(L[8])])
+                subprocess.run(["python",os.path.join(os.path.dirname(__file__),'page_principale.py'),str(L[1]),str(L[2]),str(L[3]),str(L[4]),str(L[5]),str(L[6]),str(L[7]),str(L[8]),str(L[9])])
 
            
             
@@ -114,8 +116,7 @@ button_1 = Button(f, image=rounded_button_photo, borderwidth=0, bg="white", reli
 button_1.place(x=530, y=250)
 
 # Lien pour oublier le mot de passe
-button_2 = Label(f, text="Forgot Password", font=("Arial", 12), bg="white", fg="blue")
-button_2.place(x=530, y=350)
-button_2.bind("<Button-1>", forget_password)
 
+
+    
 f.mainloop()

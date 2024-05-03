@@ -13,7 +13,7 @@ def on_enter(button):
         button_signin.config(image=photo_4)
 
 def on_leave(button):
-    if button == button_signup:
+    if button == button_signup: 
         button.config(image=photo_1)
     else:
         button_signin.config(image=photo_3)
@@ -79,7 +79,7 @@ def separate_text():
     animate_text(words)
 
 label_text = Label(frame_label, text="", font=("Arial", 30), bg="#008DDA", fg="white")
-label_text.place(x=20, y=40)
+label_text.place(x=100, y=40)
 separate_text()
 
 label_gif = Label(frame_gif)

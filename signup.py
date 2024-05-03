@@ -53,7 +53,7 @@ signup_window.geometry("1000x800")
 
 signup_image = ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(__file__),"images\\signup.webp")).resize((490, 800))) 
 Label(signup_window, image=signup_image).pack(side="left")
-Label(signup_window, text="Sign In", font=("Arial", 30,"bold"), bg="light blue").place(x=650, y=10)
+Label(signup_window, text="Sign Up", font=("Arial", 30,"bold"), bg="light blue").place(x=650, y=10)
 
 entries = [
     Entry(signup_window, bg="light blue",borderwidth=0, font=("Arial", 19)),
