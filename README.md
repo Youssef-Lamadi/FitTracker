@@ -5,17 +5,17 @@ ________________________________________________________________________________
 
                                     Physical activity and health tracking app
 ___________________________________________________________________________________________________________________________________________________
-A physical activity and health tracking application that
-allows users to track their physical activities, diet, weight, etc.
-Tkinter is used to create an attractive user interface with text input options. And NumPy is used to analyze data entered by
-users, calculate statistics such as calories burned, weight tracking, etc., and generate graphs to track progress over time.
+FitTracker is a Python-based physical activity and health tracking application.
+It helps users monitor their daily physical activities, diet, weight, and more. 
+The app provides a clean and user-friendly interface using Tkinter, while lever-
+aging NumPy for data analysis, tracking statistics, and generating progress graphs.
 ___________________________________________________________________________________________________________________________________________________
 
                                          structure of the FitTracker App
 - posibility to create an account 
 - possibility to monitor activity
 - sleep analysis
-- steps
+- steps analysis
 - modification of the profile informations anytime
 - history of at least one week/month/year activity
 - send notifications to the user (optionnal)
@@ -26,3 +26,7 @@ ________________________________________________________________________________
 
 
 
+
+
+                                                                                                                       License
+                                                                                  This project is licensed under the MIT License - see the LICENSE file for details.
